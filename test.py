@@ -113,4 +113,11 @@ class Tests(TestCase):
         self.assertIn(self.e2, found)
         self.assertIn(self.e4, found)
 
+
+    def test_reindex(self):
+        self.db.session.add_all(self.all_inst)
+        self.db.session.commit()
+        w = Whooshee()
+        w.reindex()
+
     # TODO: more :)
